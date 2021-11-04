@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Staff</title>
+    <link rel="stylesheet" href="staffAdmin.css">
+</head>
+<body onload="closeAdd()">
+<h1>Staff Page</h1>
+<div class="buttonConatiner">
+<button class="buttoni" onclick="showAdd()">Add Staff</button>
+<button class="buttoni">Update Staff</button>
+<button class="buttoni">Delete Staff</button>
+</div>
+<div>
+    <form id="aForm">
+        <input type="text" value="Student_Id" required/>
+        <input type="text" value="First_Name" required/>
+        <input type="text" value="Last_Name" />
+        <input type="date" value="DOB" />
+        <label>Gender:</label>
+        <div id="radios">
+            <label>
+                <input type="radio" name="sex" value="Male" />
+            </label>Male<br>
+            <label>
+                <input type="radio" name="sex" value="Female" />
+            </label>Female<br>
+            <label>
+                <input type="radio" name="sex" value="Other" />
+            </label>Other<br>
+        </div>
+        <input type="text" value="Email_ID" required/>
+        <input type="button" value="add" />
+        <input type="button" onclick="closeAdd()" value="close" />
+
+    </form>
+<div id="staffTable" class="staffTable"></div>
+<script src="staffAdmin.js"></script>
+</div>
+</body>
+</html>

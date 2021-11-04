@@ -1,0 +1,27 @@
+body {
+    background: #00203FFF;
+    text-align: center;
+    justify-content: center;
+    color: beige;
+}
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px;
+}
+.buttoni {
+    margin: 10px;
+    height: 40px;
+}
+.table{
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin-top: 20px;
+}
+th, td {
+    border: 1px solid beige;
+    padding: 5px;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="studentPagescript.js"></script>
+    <meta charset="UTF-8">
+    <title>Student page</title>
+    <link rel="stylesheet" href="studentPage.css">
+</head>
+<body onload="closeAdd()">
+<h1>Student page</h1>
+<div class="buttonConatiner">
+    <button class="buttoni" onclick="showAdd()">Add Student</button>
+    <button class="buttoni">Update Student</button>
+    <button class="buttoni">Delete Student</button>
+</div>
+<div class="form">
+    <form id="aForm">
+        <input type="text" value="Student_Id" required/>
+        <input type="text" value="First_Name" required/>
+        <input type="text" value="Last_Name" />
+        <input type="date" value="DOB" />
+        <label>Gender:</label>
+        <div id="radios">
+            <label>
+                <input type="radio" name="sex" value="Male" />
+            </label>Male<br>
+            <label>
+                <input type="radio" name="sex" value="Female" />
+            </label>Female<br>
+            <label>
+                <input type="radio" name="sex" value="Other" />
+            </label>Other<br>
+        </div>
+        <label for="department">Department: </label>
+        <select name="department" id="department" required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="42">42</option>
+        </select>
+        <input type="text" value="Email_ID" required/>
+        <input type="button" value="add" />
+        <input type="button" onclick="closeAdd()" value="close" />
+
+    </form>
+</div>
+<div class="table">
+    <table id="studentTable">
+        <tr>
+            <th>StudentId</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>DOB</th>
+            <th>Gender</th>
+            <th>Department</th>
+            <th>Email ID</th>
+        </tr>
+        <tr>
+            <td>333</td>
+            <td>Paul</td>
+            <td>Paulson</td>
+            <td>Sat Dec 17 2005 01:00:00 GMT+0100 (Central European Standard Time)</td>
+            <td>male</td>
+            <td>42</td>
+            <td>pson@mail.com</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
