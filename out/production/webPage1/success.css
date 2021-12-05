@@ -1,0 +1,20 @@
+body {
+    background: #00203FFF;
+    text-align: center;
+}
+.buttonContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 100px;
+}
+.buttoni {
+    margin: 10px;
+    width: 280px;
+    height: 280px;
+    border-radius: 10px;
+    font-size: 40px;
+}
+.buttoni:hover {
+    opacity: 0.2;
+}

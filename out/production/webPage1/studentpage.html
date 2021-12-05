@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="studentPagescript.js"></script>
+    <meta charset="UTF-8">
+    <title>Student page</title>
+    <link rel="stylesheet" href="studentPage.css">
+</head>
+<body onload="closeAdd()">
+<h1>Student page</h1>
+<div class="buttonConatiner">
+    <button class="buttoni" onclick="showAdd()">Add Student</button>
+    <button class="buttoni">Update Student</button>
+    <button class="buttoni">Delete Student</button>
+</div>
+<div class="form">
+    <form id="aForm">
+        <input type="text" value="Student_Id" required/>
+        <input type="text" value="First_Name" required/>
+        <input type="text" value="Last_Name" />
+        <input type="date" value="dateID" id="dateID" name="dateID"/>
+        <label>Gender:</label>
+        <div id="radios">
+            <label>
+                <input type="radio" name="sex" value="Male" />
+            </label>Male<br>
+            <label>
+                <input type="radio" name="sex" value="Female" />
+            </label>Female<br>
+            <label>
+                <input type="radio" name="sex" value="Other" />
+            </label>Other<br>
+        </div>
+        <label for="department">Department: </label>
+        <select name="department" id="department" required>
+        <option value="IT">IT</option>
+        <option value="Law">Law</option>
+        </select>
+        <input type="text" value="Email_ID" required/>
+        <input type="button" value="add" onclick="checkDate()" />
+        <input type="button" onclick="closeAdd()" value="close" />
+
+    </form>
+</div>
+<div class="selections">
+    <div class="departementSelection">
+        <label>Course Selection</label>
+        <select name="courseOptions" id="courseOptions" required onchange="showSelectedListDep()">
+            <option value="Selectcourse">Select course</option>
+            <option value="IT">IT</option>
+            <option value="Law">Law</option>
+        </select>
+    </div>
+
+    <div class="semesterSelection">
+        <label>Semester Selection</label>
+        <select name="semesterOptions" id="semesterOptions" required onchange="showSelectedListSem()">
+            <option value="Selectsemester">Select semester</option>
+            <option value="Winter">Winter</option>
+            <option value="Sommer">Sommer</option>
+        </select>
+    </div>
+</div>
+<div id="studentList"></div>
+<script src="studentPagescript.js"></script>
+</body>
+</html>
