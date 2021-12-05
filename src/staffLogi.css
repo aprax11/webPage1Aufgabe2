@@ -5,10 +5,11 @@ body {
     color: beige;
 }
 
-.studList{
+.studentList{
+    position: center;
     justify-content: center;
-    display: flex;
-    flex-direction: row;
+    display: inline-flex;
+    flex-direction: column;
     padding: 10px;
     margin-top: 20px;
 }

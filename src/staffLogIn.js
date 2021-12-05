@@ -1,44 +1,42 @@
-function showList() {
-    let studList = document.querySelector('#studList');
-    let courseSelection = document.getElementById("courses");
-    let selectedCourse = courseSelection.options[courseSelection.selectedIndex].text;
-    studList.innerHTML="";
-    let studs;
+let studentList = document.querySelector('#studentList')
 
-    switch(selectedCourse) {
-        case "web dev":
-            studs = [
-                {
-                    student_id: 1,
-                    first_name: 'Paul2',
-                    last_name: 'Paulson2',
-                    dob: new Date('2005-12-17'),
-                    gender: 'Male',
-                    department: '42',
-                    email_id: 'paulson2@mail.com'
-                }
-            ]
-            break;
-        case "programming":
-            studs = [
-                {
-                    student_id: 333,
-                    first_name: 'Hans',
-                    last_name: 'Pyrlik',
-                    dob: new Date('2003-12-17'),
-                    gender: 'Male',
-                    department: '1',
-                    email_id: 'pyl@mail.com'
-                }
-            ]
-            break;
+let students;
+
+fetch('https://api.jsonbin.io/b/61acd21d0ddbee6f8b17bf0e/1')
+    .then(response => response.json())
+    .then(data => students = data)
+    .then(json => console.log(json))
+
+
+
+let headers = ['Student ID', 'First Name', 'Last Name','Gender','DOB', 'Department', 'Email', "Joining Date"]
+
+function showSelectedListDep() {
+    let courseSelection = document.getElementById("courseOptions");
+    let selectedCourse = courseSelection.options[courseSelection.selectedIndex].text;
+    studentList.innerHTML="";
+    switch (selectedCourse) {
+        case("Selectcourse"): break;
+        case("IT"): showStudentListDep("IT"); break;
+        case("Law"): showStudentListDep("Law");break;
     }
 
-    let headers = ['student ID', 'First Name', 'Last Name', 'Birthday', 'Gender', 'department', 'Email-ID']
+}
 
-//Source: https://www.fwait.com/how-to-create-table-from-an-array-of-objects-in-javascript/
+function showSelectedListSem() {
+    let semesterSelection = document.getElementById("semesterOptions");
+    let selectedSemester = semesterSelection.options[semesterSelection.selectedIndex].text;
+    studentList.innerHTML="";
+    switch (selectedSemester) {
+        case("Selectsemester"): break;
+        case("Winter"): showStudentListSem("Winter"); break;
+        case("Sommer"): showStudentListSem("Sommer");break;
 
+    }
 
+}
+
+function showStudentListSem(Semester) {
     let table = document.createElement('table');
     let headerRow = document.createElement('tr');
 
@@ -48,9 +46,18 @@ function showList() {
         header.appendChild(textNode);
         headerRow.appendChild(header);
     });
+
     table.appendChild(headerRow);
 
-    studs.forEach(student => {
+    let studentsfilter;
+
+    if(Semester == "Sommer"){
+        studentsfilter = students.filter(stud => parseInt(stud.JoiningDate.split("/")[1]) >= 4 && stud.JoiningDate.split("/")[1] < 10);
+    } else {
+        studentsfilter = students.filter(stud => parseInt(stud.JoiningDate.split("/")[1]) < 4 || stud.JoiningDate.split("/")[1] >= 10);
+    }
+
+    studentsfilter.forEach(student => {
         let row = document.createElement('tr');
         Object.values(student).forEach(text => {
                 let cell = document.createElement('td');
@@ -62,6 +69,35 @@ function showList() {
         table.appendChild(row);
     })
 
-    studList.appendChild(table);
+    studentList.appendChild(table);
+}
+
+function showStudentListDep(Department) {
+    let table = document.createElement('table');
+    let headerRow = document.createElement('tr');
+
+    headers.forEach(headerText => {
+        let header = document.createElement('th');
+        let textNode = document.createTextNode(headerText);
+        header.appendChild(textNode);
+        headerRow.appendChild(header);
+    });
+
+    table.appendChild(headerRow);
+
+    students.filter(student => student.Department === Department).forEach(student => {
+        let row = document.createElement('tr');
+        Object.values(student).forEach(text => {
+                let cell = document.createElement('td');
+                let textNode = document.createTextNode(text);
+                cell.appendChild(textNode);
+                row.appendChild(cell);
+            }
+        )
+        table.appendChild(row);
+    })
+
+    studentList.appendChild(table);
 
 }
+

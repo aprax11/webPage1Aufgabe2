@@ -6,12 +6,27 @@
     <link rel="stylesheet" href="staffLogi.css">
 </head>
 <body>
-<select name="courses" id="courses" required onchange="showList()">
-    <option value="Selectcourse">Select course</option>
-    <option value="web dev">web dev</option>
-    <option value="programming">programming</option>
-</select>
-<div id="studList" class="studList"></div>
+<h1>Staff Page</h1>
+<div class="selections">
+    <div class="departementSelection">
+        <label>Course Selection</label>
+        <select name="courseOptions" id="courseOptions" required onchange="showSelectedListDep()">
+            <option value="Selectcourse">Select course</option>
+            <option value="IT">IT</option>
+            <option value="Law">Law</option>
+        </select>
+    </div>
+
+    <div class="semesterSelection">
+        <label>Semester Selection</label>
+        <select name="semesterOptions" id="semesterOptions" required onchange="showSelectedListSem()">
+            <option value="Selectsemester">Select semester</option>
+            <option value="Winter">Winter</option>
+            <option value="Sommer">Sommer</option>
+        </select>
+    </div>
+</div>
+<div id="studentList"></div>
 <script src="staffLogIn.js"></script>
 </body>
 </html>

@@ -4,7 +4,8 @@ function showAdd() {
 function closeAdd() {
     document.getElementById("aForm").style.display="none"
 }
-
+//const data = require('./stud.json')
+//console.log(data
 let staffTable = document.querySelector('#staffTable');
 
 let staff = [

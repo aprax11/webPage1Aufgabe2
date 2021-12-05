@@ -4,7 +4,7 @@ var attempt2 = 3;
 function validate(){
 var username = document.getElementById("username").value;
 var password = document.getElementById("password").value;
-if ( username == "a" && password == "a"){
+if ( username == "admin" && password == "admin"){
 alert ("Login successfully");
 window.location = "success.html";
 return false;
@@ -23,7 +23,7 @@ return false;
 function validate2(){
     var username2 = document.getElementById("username2").value;
     var password2 = document.getElementById("password2").value;
-    if ( username2 == "a" && password2 == "a"){
+    if ( username2 == "staff" && password2 == "staff"){
         alert ("Login successfully");
         window.location = "staffLogin.html";
         return false;

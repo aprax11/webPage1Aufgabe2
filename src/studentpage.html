@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="studentPagescript.js"></script>
     <meta charset="UTF-8">
     <title>Student page</title>
     <link rel="stylesheet" href="studentPage.css">
@@ -18,7 +17,8 @@
         <input type="text" value="Student_Id" required/>
         <input type="text" value="First_Name" required/>
         <input type="text" value="Last_Name" />
-        <input type="date" value="DOB" />
+        <label>DOB:</label>
+        <input type="date" value="dateID" id="dateID" name="dateID" onclick="disable()"/>
         <label>Gender:</label>
         <div id="radios">
             <label>
@@ -31,39 +31,41 @@
                 <input type="radio" name="sex" value="Other" />
             </label>Other<br>
         </div>
-        <label for="department">Department: </label>
+        <label>Department: </label>
         <select name="department" id="department" required>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="42">42</option>
+        <option value="IT">IT</option>
+        <option value="Law">Law</option>
         </select>
         <input type="text" value="Email_ID" required/>
-        <input type="button" value="add" />
+        <label>Joining Date:</label>
+        <input type="date" value="join" id="join" name="join" min="2015-01-01" max="2015-12-31"/>
+        <input type="button" value="add" onclick="checkDate()" />
         <input type="button" onclick="closeAdd()" value="close" />
+
+
 
     </form>
 </div>
-<div class="table">
-    <table id="studentTable">
-        <tr>
-            <th>StudentId</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>DOB</th>
-            <th>Gender</th>
-            <th>Department</th>
-            <th>Email ID</th>
-        </tr>
-        <tr>
-            <td>333</td>
-            <td>Paul</td>
-            <td>Paulson</td>
-            <td>Sat Dec 17 2005 01:00:00 GMT+0100 (Central European Standard Time)</td>
-            <td>male</td>
-            <td>42</td>
-            <td>pson@mail.com</td>
-        </tr>
-    </table>
+<div class="selections">
+    <div class="departementSelection">
+        <label>Course Selection</label>
+        <select name="courseOptions" id="courseOptions" required onchange="showSelectedListDep()">
+            <option value="Selectcourse">Select course</option>
+            <option value="IT">IT</option>
+            <option value="Law">Law</option>
+        </select>
+    </div>
+
+    <div class="semesterSelection">
+        <label>Semester Selection</label>
+        <select name="semesterOptions" id="semesterOptions" required onchange="showSelectedListSem()">
+            <option value="Selectsemester">Select semester</option>
+            <option value="Winter">Winter</option>
+            <option value="Sommer">Sommer</option>
+        </select>
+    </div>
 </div>
+<div id="studentList"></div>
+<script src="studentPagescript.js"></script>
 </body>
 </html>
